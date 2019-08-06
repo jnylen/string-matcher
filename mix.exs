@@ -3,7 +3,9 @@ defmodule StringMatcher.MixProject do
 
   @name :string_matcher
   @version "0.1.0"
-  @deps []
+  @deps [
+    {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+  ]
   @description "StringMatcher allows you to pass multiple regular expressions and a string and get values back."
 
   def project do
