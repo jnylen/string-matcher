@@ -2,7 +2,7 @@ defmodule StringMatcher.MixProject do
   use Mix.Project
 
   @name :string_matcher
-  @version "0.1.0"
+  @version "0.1.1"
   @deps [
     {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
   ]
@@ -16,7 +16,8 @@ defmodule StringMatcher.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: @deps,
       package: package(),
-      description: @description
+      description: @description,
+      docs: docs()
     ]
   end
 
@@ -24,6 +25,18 @@ defmodule StringMatcher.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  defp docs do
+    [
+      source_ref: "master",
+      main: "StringMatcher",
+      canonical: "http://hexdocs.pm/string_matcher",
+      source_url: "https://gitlab.com/jnylen/string-matcher",
+      extras: [
+        "README.md"
+      ]
     ]
   end
 

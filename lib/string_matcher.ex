@@ -1,6 +1,32 @@
 defmodule StringMatcher do
   @moduledoc """
-  Documentation for StringMatcher.
+  StringMatcher allows you to pass multiple regular expressions and a string and get values back.
+
+  ## Example
+
+  Let's say you have a text that is:
+
+  ```
+  Del 5 av 6. Shakespeare är mycket nöjd med sin senaste pjäs, Så tuktas en argbigga. Men av någon anledning uppskattas inte berättelsen om hur en stark kvinna förnedras av en man av kvinnorna i Shakespeares närhet.
+
+  Originaltitel: Upstart Crow.
+  Produktion: BBC 2017.
+  ```
+
+  First we would split the text into an array based on `\n` and `.` so that we can loop over the long text, as our matches only returns the first match back.
+
+  Then you would do:
+
+  ```
+  StringMatcher.new()
+  |> StringMatcher.add_regexp(~r/Del\s+(?<episode_num>[0-9]+?)\s+av\s+(?<of_episodes>[0-9]+?)/i,  %{})
+  |> StringMatcher.add_regexp(~r/Originaltitel:\s+(?<original_title>.*?)/i,  %{})
+  |> StringMatcher.add_regexp(~r/Produktion:\s+(?<producer>.*?) (?<episode_num>[0-9]+?)/i,  %{})
+  |> StringMatcher.match_captures(string)
+  ```
+
+  This should return a tuple with a map. The map is returned value of the regular expressions.
+  If no match is found you will receive `{:error, "no match"}`
   """
 
   @doc """
