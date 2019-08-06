@@ -11,7 +11,8 @@ defmodule StringMatcher.MixProject do
       version: @version,
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
-      deps: @deps
+      deps: @deps,
+      package: package()
     ]
   end
 
@@ -19,6 +20,18 @@ defmodule StringMatcher.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  defp package() do
+    [
+      # This option is only needed when you don't want to use the OTP application name
+      name: "string_matcher",
+      # These are the default files included in the package
+      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
+                license* CHANGELOG* changelog*),
+      licenses: ["MIT"],
+      links: %{"GitLab" => "https://gitlab.com/jnylen/string-matcher"}
     ]
   end
 end
