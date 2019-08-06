@@ -4,6 +4,7 @@ defmodule StringMatcher.MixProject do
   @name :string_matcher
   @version "0.1.0"
   @deps []
+  @description "StringMatcher allows you to pass multiple regular expressions and a string and get values back."
 
   def project do
     [
@@ -12,7 +13,8 @@ defmodule StringMatcher.MixProject do
       elixir: "~> 1.9",
       start_permanent: Mix.env() == :prod,
       deps: @deps,
-      package: package()
+      package: package(),
+      description: @description
     ]
   end
 
@@ -28,8 +30,7 @@ defmodule StringMatcher.MixProject do
       # This option is only needed when you don't want to use the OTP application name
       name: "string_matcher",
       # These are the default files included in the package
-      files: ~w(lib priv .formatter.exs mix.exs README* readme* LICENSE*
-                license* CHANGELOG* changelog*),
+      files: ~w(lib .formatter.exs mix.exs README* LICENSE*),
       licenses: ["MIT"],
       links: %{"GitLab" => "https://gitlab.com/jnylen/string-matcher"}
     ]
