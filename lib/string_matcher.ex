@@ -1,5 +1,5 @@
 defmodule StringMatcher do
-  @moduledoc """
+  @moduledoc ~S"""
   StringMatcher allows you to pass multiple regular expressions and a string and get values back.
 
   ## Example
@@ -51,8 +51,8 @@ defmodule StringMatcher do
 
   ## Examples
 
-    iex> StringMatcher.add_regexp([], ~r/S(?<season_num>\d+)E(?<episode_num>\d+)/i, %{})
-    [{~r/S(?<season_num>\d+)E(?<episode_num>\d+)/i, %{}}]
+      iex> StringMatcher.add_regexp([], ~r/S(?<season_num>\d+)E(?<episode_num>\d+)/i, %{})
+      [{~r/S(?<season_num>\d+)E(?<episode_num>\d+)/i, %{}}]
 
   """
   def add_regexp(list, %Regex{} = regexp, result) when is_list(list) and is_map(result) do

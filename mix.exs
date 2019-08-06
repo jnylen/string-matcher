@@ -2,7 +2,7 @@ defmodule StringMatcher.MixProject do
   use Mix.Project
 
   @name :string_matcher
-  @version "0.1.1"
+  @version "0.1.2"
   @deps [
     {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
   ]
