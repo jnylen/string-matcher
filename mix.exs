@@ -47,7 +47,7 @@ defmodule StringMatcher.MixProject do
       # These are the default files included in the package
       files: ~w(lib .formatter.exs mix.exs README* LICENSE*),
       licenses: ["MIT"],
-      links: %{"GitLab" => "https://gitlab.com/jnylen/string-matcher"}
+      links: %{"Github" => "https://github.com/jnylen/string-matcher"}
     ]
   end
 end
