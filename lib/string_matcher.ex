@@ -19,14 +19,22 @@ defmodule StringMatcher do
 
   ```
   StringMatcher.new()
-  |> StringMatcher.add_regexp(~r/Del\s+(?<episode_num>[0-9]+?)\s+av\s+(?<of_episodes>[0-9]+?)/i,  %{})
-  |> StringMatcher.add_regexp(~r/Originaltitel:\s+(?<original_title>.*?)/i,  %{})
-  |> StringMatcher.add_regexp(~r/Produktion:\s+(?<producer>.*?) (?<episode_num>[0-9]+?)/i,  %{})
+  |> StringMatcher.add_regexp(
+    ~r/Del\s+(?<episode_num>[0-9]+?)\s+av\s+(?<of_episodes>[0-9]+?)/i,
+    %{}
+  )
+  |> StringMatcher.add_regexp(~r/Originaltitel: (?<original_title>.*)\./i, %{})
+  |> StringMatcher.add_regexp(
+    ~r/Produktion: (?<production_company>.*?) (?<production_year>[0-9]+)\./i,
+    %{}
+  )
   |> StringMatcher.match_captures(string)
   ```
 
   This should return a tuple with a map. The map is returned value of the regular expressions.
   If no match is found you will receive `{:error, "no match"}`
+
+  Please take a look at our tests to see a working variant of parsing the text above.
   """
 
   @doc """
