@@ -19,9 +19,15 @@ Then you would do:
 
 ```elixir
 StringMatcher.new()
-|> StringMatcher.add_regexp(~r/Del\s+(?<episode_num>[0-9]+?)\s+av\s+(?<of_episodes>[0-9]+?)/i,  %{})
-|> StringMatcher.add_regexp(~r/Originaltitel:\s+(?<original_title>.*?)/i,  %{})
-|> StringMatcher.add_regexp(~r/Produktion:\s+(?<producer>.*?) (?<episode_num>[0-9]+?)/i,  %{})
+|> StringMatcher.add_regexp(
+  ~r/Del\s+(?<episode_num>[0-9]+?)\s+av\s+(?<of_episodes>[0-9]+?)/i,
+  %{}
+)
+|> StringMatcher.add_regexp(~r/Originaltitel: (?<original_title>.*)\./i, %{})
+|> StringMatcher.add_regexp(
+  ~r/Produktion: (?<production_company>.*?) (?<production_year>[0-9]+)\./i,
+  %{}
+)
 |> StringMatcher.match_captures(string)
 ```
 
