@@ -33,7 +33,7 @@ defmodule StringMatcher.MixProject do
       source_ref: "master",
       main: "StringMatcher",
       canonical: "http://hexdocs.pm/string_matcher",
-      source_url: "https://gitlab.com/jnylen/string-matcher",
+      source_url: "https://github.com/jnylen/string-matcher",
       extras: [
         "README.md"
       ]
